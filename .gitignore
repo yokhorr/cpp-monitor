@@ -44,3 +44,5 @@ bot_token.txt
 configs/
 lib64
 entries.json
+start_bot.sh
+shell.txt

@@ -215,7 +215,16 @@ async def monitor_gsheet(user_id: int) -> None:
 
                     # Checked
                     if row.get("Оценка"):
-                        message_text = f"Посылка `{escape_md(task)}` для `{escape_md(name)}` проверена{escape_md('!')} Мониторинг остановлен{escape_md('.')}"
+                        reviewer = row.get("Проверяющий", "Неизвестно")
+                        grade = row.get("Оценка")
+
+                        message_text = (
+                            f"Посылка `{escape_md(task)}` для `{escape_md(name)}` проверена{escape_md('!')}\n"
+                            f"Проверяющий: `{escape_md(reviewer)}`\n"
+                            f"Оценка: `{escape_md(str(grade))}`\n\n"
+                            f"Мониторинг остановлен{escape_md('.')}"
+                        )
+
                         await bot.send_message(
                             user_id,
                             message_text,
@@ -228,7 +237,7 @@ async def monitor_gsheet(user_id: int) -> None:
                         if notify_task:
                             notify_task.cancel()
                         notify_task = asyncio.create_task(periodic_notify(
-                            user_id, f"Посылка '{task}' для {name} проверена!"
+                            user_id, f"Посылка '{task}' для {name} проверена! Оценка: {grade}"
                         ))
                         return
             except Exception as e:
