@@ -43,3 +43,4 @@ bot_token.txt
 # Configs directory
 configs/
 lib64
+entries.json
