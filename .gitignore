@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+lib/
+lib64/
+bin/
+include/
+pyvenv.cfg
+
+# macOS and Linux system files
+.DS_Store
+
+# Editor swap/backup files
+*~
+*.swp
+*.swo
+
+# Python egg metadata and distribution
+*.egg-info/
+dist/
+build/
+
+# VSCode and PyCharm
+.vscode/
+.idea/
+
+# Token, secrets, config (add names if you store secrets locally)
+bot_token.txt
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore unnecessary files in root
+*.log
+
+# Configs directory
+configs/
+lib64
