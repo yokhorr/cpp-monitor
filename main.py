@@ -1,3 +1,25 @@
+# SPDX-License-Identifier: MIT
+#
+# Copyright (c) 2025 Egor Solyanik
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
 import requests
 import csv
 import io
@@ -16,7 +38,7 @@ from aiogram.client.default import DefaultBotProperties
 BOT_TOKEN: str = open('bot_token.txt').read().strip()
 SPREADSHEET_ID: str = "1PlQVDjbfnTrUBmgltN2JwDnq3ZUjs8l4ei_MkaGzL1A"
 SHEET_GIDS: List[str] = ["730603969", "928911897"]
-FETCH_INTERVAL: int = 10
+FETCH_INTERVAL: int = 600
 ENTRIES_FILE: str = "entries.json"
 IMAGE_PATH: str = "/home/yokhor/Pictures/moth.png"
 PERIODIC_NOTIFY_INTERVAL: int = 30
@@ -327,14 +349,10 @@ async def info_command(message: types.Message) -> None:
 @dp.message(Command("klenin"))
 async def klenin_command(message: types.Message) -> None:
     """
-    Handle /klenin easter egg command (hidden from help).
+    Handle /klenin easter egg command.
     """
     easter_egg_text = (
-        "🎓 Александр Сергеевич Кленин\n"
-        "Легендарный преподаватель и создатель множества олимпиадных задач по программированию!\n\n"
-        "\"Программирование — это искусство превращения кофе в код\"\n"
-        "— Народная мудрость (приписываемая А.С. Кленину)\n\n"
-        "🔥 Fun fact: Говорят, что если написать идеальный код, Кленин материализуется и поставит зачёт автоматом!"
+        "Семь бед — один ответ: костыль и велосипед!\n"
     )
     await message.answer(escape_md(easter_egg_text))
 
