@@ -340,7 +340,7 @@ async def info_command(message: types.Message) -> None:
         "cpp-ct monitor bot\n"
         "Версия: 1.0\n"
         "Разработчик: @yokhor\n"
-        "GitHub: https://github.com/yokhorr\n\n"
+        "GitHub: https://github.com/yokhorr/cpp-monitor\n\n"
         "Бот предназначен для мониторинга состояния посылок по заданиям курса C++.\n"
     )
     await message.answer(escape_md(info_text))
